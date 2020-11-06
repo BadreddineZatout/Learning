@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    
+</head>
+<body>
+    <div id="vue-app-one">
+        <h2>Refs</h2>
+        <input type="text" ref="input">
+        <button v-on:click="readRefs">Submit</button>
+        <p>Your favorite food : {{output}}</p>
+    </div>
+
+</body>
+<script src="app.js"></script>
+</html>
