@@ -1,17 +1,27 @@
-import useFetch from "../hooks/useFetch";
+// import useFetch from "../hooks/useFetch";
 import '../Styles/blog.css';
 import BlogList from "./blogs/BlogList";
-const Home = () => {
+import { connect } from 'react-redux';
 
-    const {data: blogs, isPending, error} = useFetch('http://localhost:3001/blogs');
+const Home = (props) => {
+
+    console.log(props);
+    // const {data: blogs, isPending, error} = useFetch('http://localhost:3001/blogs');
+    const blogs = props.blogs;
 
     return ( 
         <div className="home">
-            {error && <div> {error} </div>}
-            {isPending && <div>Loading ...</div>}
+            {/* {error && <div> {error} </div>} */}
+            {/* {isPending && <div>Loading ...</div>} */}
             {blogs && <BlogList blogs={blogs} title="All Blogs!"></BlogList>}
         </div>
      );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        blogs: state.blogs
+    }
+}
  
-export default Home;
+export default connect(mapStateToProps)(Home);

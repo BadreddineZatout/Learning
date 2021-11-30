@@ -2,7 +2,7 @@ import {useParams, useNavigate} from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import '../../Styles/blog-details.css';
 
-const Blog = () => {
+const Blog = (props) => {
     const {id} = useParams();
     const {data: blog, isPending, error} = useFetch(`http://localhost:3001/blogs/${id}`);
     const navigate = useNavigate();
@@ -32,5 +32,6 @@ const Blog = () => {
         </div>
      );
 }
+
  
 export default Blog;
