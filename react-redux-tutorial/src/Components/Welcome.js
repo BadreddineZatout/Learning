@@ -9,6 +9,9 @@ import ParentComp from './pureComps/ParentComp';
 import FocusInput from './refs/FocusInput';
 import FRParentInput from './refs/FRParentInput';
 import RefsDemo from './refs/RefsDemo';
+import ClickCounterTwo from './renderProps/ClickCounterTwo';
+import Counter from './renderProps/Counter';
+import HoverCounterTwo from './renderProps/HoverCounterTwo';
 
 class Welcome extends Component {
     render() { 
@@ -26,9 +29,15 @@ class Welcome extends Component {
             </ErrorBoundary>
             <ErrorBoundary>
                 <Hero heroName='joker' />
-            </ErrorBoundary>*/}
-            <ClickCounter />
-            <HoverCounter />
+            </ErrorBoundary>
+            <ClickCounter name='badi' />
+            <HoverCounter name='badi' /> */}
+            <Counter render={ (count, incrementCount) => (
+                <ClickCounterTwo count={count} incrementCount={incrementCount} />
+            ) }/>
+            <Counter render={ (count, incrementCount) => (
+                <HoverCounterTwo count={count} incrementCount={incrementCount} />
+            ) }/>
         </div>
         );
     }
