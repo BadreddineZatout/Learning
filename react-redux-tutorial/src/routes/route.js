@@ -5,10 +5,12 @@ import Home from '../Components/Home';
 import Login from '../Components/Login';
 import NotFound from '../Components/NotFound';
 import Profile from '../Components/Profile';
+import Welcome from '../Components/Welcome';
 const Web = () => {
     return ( 
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/welcome' element={<Welcome />} />
           <Route path='/create' element={<Create />} />
           <Route path='/blogs/:id' element={<Blog />} />
           <Route path="profile" element={<Profile />} />
