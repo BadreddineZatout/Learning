@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import { UserProvider } from './context/userContext';
 import ErrorBoundary from './error/ErrorBoundary';
 import Hero from './error/Hero';
 import FragmentDemo from './FragmentDemo';
 import ClickCounter from './HOC/ClickCounter';
 import HoverCounter from './HOC/HoverCounter';
 import LifecycleA from './LifecycleA';
+import NameA from './NameA';
 import ParentComp from './pureComps/ParentComp';
 import FocusInput from './refs/FocusInput';
 import FRParentInput from './refs/FRParentInput';
@@ -31,13 +33,16 @@ class Welcome extends Component {
                 <Hero heroName='joker' />
             </ErrorBoundary>
             <ClickCounter name='badi' />
-            <HoverCounter name='badi' /> */}
+            <HoverCounter name='badi' /> 
             <Counter render={ (count, incrementCount) => (
                 <ClickCounterTwo count={count} incrementCount={incrementCount} />
             ) }/>
             <Counter render={ (count, incrementCount) => (
                 <HoverCounterTwo count={count} incrementCount={incrementCount} />
-            ) }/>
+            ) }/>*/}
+            <UserProvider value='Badreddine'>
+                <NameA /> 
+            </UserProvider>
         </div>
         );
     }
