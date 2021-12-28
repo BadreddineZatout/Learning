@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
+import ComponentA from './context/ComponentA';
 import { UserProvider } from './context/userContext';
+import CounterOne from './CounterOne';
+import CounterThree from './CounterThree';
+import CounterTwo from './CounterTwo';
 import ErrorBoundary from './error/ErrorBoundary';
 import Hero from './error/Hero';
+import FetchingDataOne from './FetchingDataOne';
+import FetchingDataTwo from './FetchingDataTwo';
 import FragmentDemo from './FragmentDemo';
 import ClickCounter from './HOC/ClickCounter';
 import HoverCounter from './HOC/HoverCounter';
@@ -36,13 +42,19 @@ class Welcome extends Component {
             <HoverCounter name='badi' /> 
             <Counter render={ (count, incrementCount) => (
                 <ClickCounterTwo count={count} incrementCount={incrementCount} />
-            ) }/>
+            ) }/> 
             <Counter render={ (count, incrementCount) => (
                 <HoverCounterTwo count={count} incrementCount={incrementCount} />
-            ) }/>*/}
+            ) }/>
             <UserProvider value='Badreddine'>
                 <NameA /> 
+                <ComponentA />
             </UserProvider>
+            <CounterOne />
+            <CounterTwo />
+            <CounterThree />*/}
+            <FetchingDataOne />
+            <FetchingDataTwo />
         </div>
         );
     }
