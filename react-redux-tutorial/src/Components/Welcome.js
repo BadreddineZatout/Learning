@@ -14,7 +14,9 @@ import HoverCounter from './HOC/HoverCounter';
 import LifecycleA from './LifecycleA';
 import NameA from './NameA';
 import ParentComp from './pureComps/ParentComp';
-import FocusInput from './refs/FocusInput';
+import ClassTimer from './refhook/ClassTimer';
+import FocusInput from './refhook/FocusInput';
+import HookTimer from './refhook/HookTimer';
 import FRParentInput from './refs/FRParentInput';
 import RefsDemo from './refs/RefsDemo';
 import ClickCounterTwo from './renderProps/ClickCounterTwo';
@@ -55,6 +57,9 @@ class Welcome extends Component {
             <CounterThree />*/}
             <FetchingDataOne />
             <FetchingDataTwo />
+            <FocusInput />
+            <ClassTimer /> 
+            <HookTimer />
         </div>
         );
     }
