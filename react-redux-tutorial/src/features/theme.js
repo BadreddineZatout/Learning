@@ -7,6 +7,7 @@ export const themeSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         changeColor: (state, action) => {
+            console.log(action);
             state.value = action.payload;
         }
     }
