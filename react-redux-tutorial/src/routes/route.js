@@ -7,6 +7,7 @@ import Home from '../Components/Home';
 import Login from '../Components/Login';
 import NotFound from '../Components/NotFound';
 import Profile from '../Components/Profile';
+import UserContainer from '../Components/UserContainer';
 import Welcome from '../Components/Welcome';
 
 const Web = () => {
@@ -20,6 +21,7 @@ const Web = () => {
           <Route path="login" element={<Login />} />
           <Route path="cake-shop" element={<CakeContainer />} />
           <Route path="cake-shop" element={<HooksCakeContainer />} />
+          <Route path="users" element={<UserContainer />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
      );
