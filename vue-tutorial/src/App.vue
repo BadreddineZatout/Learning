@@ -7,11 +7,22 @@
   <h2 :class="isPromoted && 'promoted'">promoted movie</h2>
   <h2 :class="isSoldOut ? 'sold-out' : ''">Soldout? movie</h2>
   <h2 :class="['new', 'promoted']">newly promoted movie</h2>
-  <h2 :style="{
-    color: highlightColor,
-    'font-size': headerSize + 'px'
-  }">Inline Style</h2>
+  <h2
+    :style="{
+      color: highlightColor,
+      'font-size': headerSize + 'px',
+    }"
+  >
+    Inline Style
+  </h2>
   <h2 :style="headerStyleObject">Object Style</h2>
+  <div v-show="display">
+    <h2 v-if="num === 0">The number is zero</h2>
+    <h2 v-else-if="num < 0">The number is negative</h2>
+    <h2 v-else-if="num > 0">The number is positive</h2>
+    <h2 v-else>it is not a number</h2>
+  </div>
+  <h2 v-for="myName in names" :key="myName">{{ myName }}</h2>
 </template>
 
 <script>
@@ -26,12 +37,15 @@ export default {
       status: "danger",
       isPromoted: true,
       isSoldOut: true,
-      highlightColor: 'orange',
+      highlightColor: "orange",
       headerSize: 50,
       headerStyleObject: {
-        color: 'orange',
-        fontSize: 50 + 'px'
-      }
+        color: "orange",
+        fontSize: 50 + "px",
+      },
+      num: 5,
+      display: true,
+      names:  ['badi', 'badro', 'badri']
     };
   },
 };
