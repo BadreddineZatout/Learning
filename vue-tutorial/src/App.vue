@@ -1,28 +1,12 @@
 <template>
-  <div>Hello {{ name }}</div>
-  <div v-text="nom"></div>
-  <h2 :id="headingId" class="underline">Heading</h2>
-  <button :disabled="isDisabled">Bind</button>
-  <h2 class="underline" :class="status">Status</h2>
-  <h2 :class="isPromoted && 'promoted'">promoted movie</h2>
-  <h2 :class="isSoldOut ? 'sold-out' : ''">Soldout? movie</h2>
-  <h2 :class="['new', 'promoted']">newly promoted movie</h2>
-  <h2
-    :style="{
-      color: highlightColor,
-      'font-size': headerSize + 'px',
-    }"
-  >
-    Inline Style
-  </h2>
-  <h2 :style="headerStyleObject">Object Style</h2>
-  <div v-show="display">
-    <h2 v-if="num === 0">The number is zero</h2>
-    <h2 v-else-if="num < 0">The number is negative</h2>
-    <h2 v-else-if="num > 0">The number is positive</h2>
-    <h2 v-else>it is not a number</h2>
+  <h2>{{ name }}</h2>
+  <div>
+    <button v-on:mouseover="name='batman'">change name</button>
   </div>
-  <h2 v-for="myName in names" :key="myName">{{ myName }}</h2>
+  <h2>{{ count }}</h2>
+  <div>
+    <button @click="increment()">increment</button>
+  </div>
 </template>
 
 <script>
@@ -30,24 +14,15 @@ export default {
   name: "App",
   data() {
     return {
-      name: "Badreddine",
-      nom: "Zatout",
-      headingId: "heading",
-      isDisabled: true,
-      status: "danger",
-      isPromoted: true,
-      isSoldOut: true,
-      highlightColor: "orange",
-      headerSize: 50,
-      headerStyleObject: {
-        color: "orange",
-        fontSize: 50 + "px",
-      },
-      num: 5,
-      display: true,
-      names:  ['badi', 'badro', 'badri']
+      name: 'BAdreddine',
+      count: 0
     };
   },
+  methods: {
+    increment() {
+      this.count +=1;
+    }
+  }
 };
 </script>
 
