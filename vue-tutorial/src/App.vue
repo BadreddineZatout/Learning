@@ -1,9 +1,10 @@
 <template>
   <div>fullname - {{ fullname }}</div>
-  <button v-on:click="firstname = 'badi'">change name</button>
-  <h2>
-    Total - {{ total }}
-  </h2>
+  <button v-on:click="fullname = 'badi dahmani'">change name</button>
+  <h2>Total - {{ total }}</h2>
+  <template v-for="item in expensiveItems" :key="item.id">
+    <h2>{{ item.title }} {{ item.price }}</h2>
+  </template>
 </template>
 
 <script>
@@ -11,36 +12,49 @@ export default {
   name: "App",
   data() {
     return {
-      firstname: 'badreddine',
-      lastname: 'zatout',
+      firstname: "badreddine",
+      lastname: "zatout",
       items: [
         {
           id: 1,
-          title: 'TV',
-          price: 100
+          title: "TV",
+          price: 100,
         },
         {
           id: 1,
-          title: 'phone',
-          price: 400
+          title: "phone",
+          price: 400,
         },
         {
           id: 1,
-          title: 'Bike',
-          price: 50
+          title: "Bike",
+          price: 50,
         },
-      ]
+      ],
     };
   },
   methods: {},
   computed: {
-    fullname() {
-      return this.firstname + ' ' + this.lastname;
+    fullname: {
+      get() {
+        return this.firstname + " " + this.lastname;
+      },
+      set(value) {
+        const names = value.split(' ');
+        this.firstname = names[0];
+        this.lastname = names[1];
+      },
     },
     total() {
-      return this.items.reduce((total, curr) => total = total + curr.price, 0)
-    }
-  }
+      return this.items.reduce(
+        (total, curr) => (total = total + curr.price),
+        0
+      );
+    },
+    expensiveItems() {
+      return this.items.filter((item) => item.price > 100);
+    },
+  },
 };
 </script>
 
