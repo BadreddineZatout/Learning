@@ -1,12 +1,9 @@
 <template>
-  <h2>{{ name }}</h2>
-  <div>
-    <button v-on:mouseover="name='batman'">change name</button>
-  </div>
-  <h2>{{ count }}</h2>
-  <div>
-    <button @click="increment()">increment</button>
-  </div>
+  <div>fullname - {{ fullname }}</div>
+  <button v-on:click="firstname = 'badi'">change name</button>
+  <h2>
+    Total - {{ total }}
+  </h2>
 </template>
 
 <script>
@@ -14,13 +11,34 @@ export default {
   name: "App",
   data() {
     return {
-      name: 'BAdreddine',
-      count: 0
+      firstname: 'badreddine',
+      lastname: 'zatout',
+      items: [
+        {
+          id: 1,
+          title: 'TV',
+          price: 100
+        },
+        {
+          id: 1,
+          title: 'phone',
+          price: 400
+        },
+        {
+          id: 1,
+          title: 'Bike',
+          price: 50
+        },
+      ]
     };
   },
-  methods: {
-    increment() {
-      this.count +=1;
+  methods: {},
+  computed: {
+    fullname() {
+      return this.firstname + ' ' + this.lastname;
+    },
+    total() {
+      return this.items.reduce((total, curr) => total = total + curr.price, 0)
     }
   }
 };
