@@ -1,10 +1,16 @@
 <template>
-  <div>fullname - {{ fullname }}</div>
-  <button v-on:click="fullname = 'badi dahmani'">change name</button>
-  <h2>Total - {{ total }}</h2>
-  <template v-for="item in expensiveItems" :key="item.id">
-    <h2>{{ item.title }} {{ item.price }}</h2>
-  </template>
+  <h2>Volume Tracker (0-20)</h2>
+  <h2>Current Volume - {{ volume }}</h2>
+  <div>
+    <button @click="volume += 2">Increase</button>
+    <button @click="volume -= 2">Decrease</button>
+  </div>
+  <div>
+    <input type="text" v-model="movie" />
+    <input type="text" v-model="movieInfo.title" />
+    <input type="text" v-model="movieInfo.actor" />
+  </div>
+  <button @click="movieList.push('superman')">add movie</button>
 </template>
 
 <script>
@@ -12,47 +18,38 @@ export default {
   name: "App",
   data() {
     return {
-      firstname: "badreddine",
-      lastname: "zatout",
-      items: [
-        {
-          id: 1,
-          title: "TV",
-          price: 100,
-        },
-        {
-          id: 1,
-          title: "phone",
-          price: 400,
-        },
-        {
-          id: 1,
-          title: "Bike",
-          price: 50,
-        },
-      ],
+      volume: 0,
+      movie: "",
+      movieInfo: {
+        title: "",
+        actor: "",
+      },
+      movieList: ["Batman", "Spider-man"],
     };
   },
   methods: {},
-  computed: {
-    fullname: {
-      get() {
-        return this.firstname + " " + this.lastname;
-      },
-      set(value) {
-        const names = value.split(' ');
-        this.firstname = names[0];
-        this.lastname = names[1];
-      },
+  computed: {},
+  watch: {
+    volume(newValue, oldValue) {
+      if (newValue >= 16 && newValue > oldValue) alert("high volume");
     },
-    total() {
-      return this.items.reduce(
-        (total, curr) => (total = total + curr.price),
-        0
-      );
+    movie: {
+      handler(newValue) {
+        console.log(newValue);
+      },
+      immediate: true,
     },
-    expensiveItems() {
-      return this.items.filter((item) => item.price > 100);
+    movieInfo: {
+      handler(newValue) {
+        console.log(newValue.title, newValue.actor);
+      },
+      deep: true,
+    },
+    movieList: {
+      handler(newValue) {
+        console.log(newValue);
+      },
+      deep: true,
     },
   },
 };
