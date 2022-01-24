@@ -1,24 +1,25 @@
 <template>
-  <Greet name='badreddine' />
-  <Greet name='Zakaria' />
-  <Greet :name='name' />
-  <Article title="Article Title" :likes='50' />
+  <div>
+    <ComponentA />
+  </div>
 </template>
 
 <script>
-import Greet from "./components/Greet.vue";
-import Article from './components/Article';
+import ComponentA from "./components/ComponentA.vue";
 
 export default {
   name: "App",
   data() {
     return {
-      name: 'badro'
-    }
+      age: 52,
+    };
   },
-  components: {
-    Greet,
-    Article
+  components: { ComponentA },
+  provide() {
+    return {
+      username: "badreddine",
+      age: this.age,
+    };
   },
 };
 </script>
@@ -31,21 +32,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.promoted {
-  font-style: italic;
-}
-
-.new {
-  color: olivedrab;
-}
-
-.sold-out {
-  color: red;
 }
 </style>
