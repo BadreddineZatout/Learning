@@ -1,17 +1,24 @@
 <template>
-  <h4>App component</h4>
-  <ChildStyles />
+  <button @click="activeTab = 'TabA'">Tab A</button>
+  <button @click="activeTab = 'TabB'">Tab B</button>
+
+  <keep-alive>
+    <component :is="activeTab" />
+  </keep-alive>
 </template>
 
 <script>
-import ChildStyles from "./components/ChildStyles.vue";
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
 
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      activeTab: "TabA",
+    };
   },
-  components: { ChildStyles },
+  components: { TabA, TabB },
 };
 </script>
 
@@ -23,8 +30,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-h4 {
-  color: orange;
 }
 </style>
