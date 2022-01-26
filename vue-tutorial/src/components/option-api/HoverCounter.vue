@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import CounterMixing from "../mixings/counter";
+import CounterMixing from "../../mixings/counter";
 
 export default {
   name: "HoverCounter",
