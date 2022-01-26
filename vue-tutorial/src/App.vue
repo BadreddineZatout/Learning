@@ -1,18 +1,19 @@
 <template>
   <div>
-    <TemplateRef />
+    <ClickCounter />
+    <HoverCounter />
   </div>
 </template>
 
 <script>
-import TemplateRef from './components/TemplateRef.vue'
-
+import ClickCounter from './components/ClickCounter.vue';
+import HoverCounter from './components/HoverCounter.vue';
 export default {
   name: "App",
   data() {
     return {};
   },
-  components: {TemplateRef},
+  components: {ClickCounter, HoverCounter},
 };
 </script>
 
