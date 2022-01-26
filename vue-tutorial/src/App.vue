@@ -1,24 +1,17 @@
 <template>
-  <button @click="activeTab = 'TabA'">Tab A</button>
-  <button @click="activeTab = 'TabB'">Tab B</button>
-
-  <keep-alive>
-    <component :is="activeTab" />
-  </keep-alive>
+  <div>
+    <PostList />
+  </div>
 </template>
 
 <script>
-import TabA from "./components/TabA.vue";
-import TabB from "./components/TabB.vue";
-
+import PostList from './components/PostList.vue'
 export default {
   name: "App",
   data() {
-    return {
-      activeTab: "TabA",
-    };
+    return {};
   },
-  components: { TabA, TabB },
+  components: {PostList},
 };
 </script>
 
