@@ -1,14 +1,16 @@
 <template>
   <div>
-    <Person />
+    <ClickCounter />
+    <HoverCounter />
   </div>
 </template>
 
 <script>
-import Person from './components/composition-api/Person.vue';
+import ClickCounter from './components/composition-api/ClickCounter.vue';
+import HoverCounter from './components/composition-api/HoverCounter.vue';
 export default {
   name: "App",
-  components: {Person},
+  components: {ClickCounter, HoverCounter},
 };
 </script>
 
