@@ -1,21 +1,28 @@
 <template>
   <div>
-    <h3>{{ firstname }}</h3>
     <h3>{{ greet }}</h3>
+    <h3>{{ reactiveGreet }}</h3>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 export default {
   name: "Data",
   setup() {
-    const firstname = ref("badreddine zatout");
-    firstname.value = "zakaria";
-    const greet = `hello ${firstname.value}`;
+    const firstname = ref("badreddine");
+    const lastname = ref("zatout");
+    const greet = `hello ${firstname.value} ${lastname.value}`;
+    const state = reactive({
+      firstname: "badi",
+      lastname: "zatout",
+    });
+    state.firstname = 'zakaria';
+    const reactiveGreet = `Hello ${state.firstname} ${state.lastname}`;
+
     return {
-      firstname,
       greet,
+      reactiveGreet
     };
   },
 };
