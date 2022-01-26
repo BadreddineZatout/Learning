@@ -1,14 +1,14 @@
 <template>
   <div>
-    <TemplateRef />
+    <Person />
   </div>
 </template>
 
 <script>
-import TemplateRef from './components/composition-api/TemplateRef.vue';
+import Person from './components/composition-api/Person.vue';
 export default {
   name: "App",
-  components: {TemplateRef},
+  components: {Person},
 };
 </script>
 
