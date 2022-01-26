@@ -1,17 +1,14 @@
 <template>
   <div>
-    <Data />
+    <Computed />
   </div>
 </template>
 
 <script>
-import Data from './components/composition-api/Data.vue';
+import Computed from './components/composition-api/Computed.vue';
 export default {
   name: "App",
-  data() {
-    return {};
-  },
-  components: {Data},
+  components: {Computed},
 };
 </script>
 
