@@ -10,7 +10,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ["Supermercado One"],
+        body: ["Oswald"],
       },
     },
   },
