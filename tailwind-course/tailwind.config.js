@@ -1,8 +1,5 @@
 module.exports = {
-  content: [
-    "./src/**/*.{html,js}",
-      "./public/*.html",
-  ],
+  content: ["./src/**/*.{html,js}", "./public/*.html"],
   theme: {
     extend: {
       colors: {
@@ -11,6 +8,9 @@ module.exports = {
           100: "E2E2D5",
           200: "888883",
         },
+      },
+      fontFamily: {
+        body: ["Supermercado One"],
       },
     },
   },
