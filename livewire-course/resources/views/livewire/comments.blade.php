@@ -1,4 +1,5 @@
-<div class="w-1/2">
+<div class="w-1/2 mt-6">
+    <h1 class="text-3xl text-gray-800 font-semibold">Comments</h1>
     <form class="my-4 flex" wire:submit.prevent="addComment">
         <input type="text" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="What's in your mind."
             wire:model.lazy='newComment'>
@@ -6,6 +7,9 @@
             <button type="submit" class="p-2 bg-blue-500 w-20 rounded shadow text-white">Add</button>
         </div>
     </form>
+    @error('newComment')
+        <span class="error">{{ $message }}</span>
+    @enderror
     @foreach ($comments as $comment)
         <div class="rounded border shadow p-3 my-2">
             <div class="flex justify-between my-2">
@@ -15,7 +19,7 @@
                         {{ $comment->created_at->diffForHumans() }}
                     </p>
                 </div>
-                <i class="fas fa-times text-red-200 hover:text-red-600 cursor-pointer"></i>
+                <x-heroicon-o-clock class="text-red-200 hover:text-red-600 cursor-pointer h-4 w-4" />
             </div>
             <p class="text-gray-800">{{ $comment->body }}</p>
         </div>
