@@ -11,8 +11,7 @@
 @livewireStyles
 
 <body class="flex justify-center">
-    @livewire('comments')
-
+    <livewire:comments :comments="$comments" />
     @livewireScripts
 </body>
 
