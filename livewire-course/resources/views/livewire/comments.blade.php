@@ -7,6 +7,12 @@
             </div>
         @endif
     </div>
+    <section>
+        @if ($image)
+            <img src={{ $image }} width="200">
+        @endif
+        <input type="file" name="image" id="image" wire:change="$emit('fileUpload')">
+    </section>
     <form class="my-4 flex" wire:submit.prevent="addComment">
         <input type="text" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="What's in your mind."
             wire:model.lazy='newComment'>
@@ -32,4 +38,18 @@
             <p class="text-gray-800">{{ $comment->body }}</p>
         </div>
     @endforeach
+    {{ $comments->links('pagination-links') }}
 </div>
+
+<script>
+    Livewire.on('fileUpload', () => {
+        console.log("here")
+        let inputField = document.querySelector('#image');
+        let file = inputField.files[0];
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            Livewire.emit("fileUploaded", reader.result)
+        }
+        reader.readAsDataURL(file);
+    })
+</script>
