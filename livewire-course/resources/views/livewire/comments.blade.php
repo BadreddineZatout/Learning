@@ -1,5 +1,12 @@
 <div class="w-1/2 mt-6">
     <h1 class="text-3xl text-gray-800 font-semibold">Comments</h1>
+    <div>
+        @if (session()->has('message'))
+            <div class="p-3 bg-green-300 text-green-800 rounded-md shadow-sm">
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
     <form class="my-4 flex" wire:submit.prevent="addComment">
         <input type="text" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="What's in your mind."
             wire:model.lazy='newComment'>
@@ -19,7 +26,8 @@
                         {{ $comment->created_at->diffForHumans() }}
                     </p>
                 </div>
-                <x-heroicon-o-clock class="text-red-200 hover:text-red-600 cursor-pointer h-4 w-4" />
+                <x-heroicon-o-x class="text-red-200 hover:text-red-600 cursor-pointer h-4 w-4"
+                    wire:click="remove({{ $comment->id }})" />
             </div>
             <p class="text-gray-800">{{ $comment->body }}</p>
         </div>

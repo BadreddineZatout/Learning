@@ -17,7 +17,7 @@ class Comments extends Component
 
     public function mount()
     {
-        $this->comments = Comment::all();
+        $this->comments = Comment::latest()->paginate(2);
     }
 
     public function updated($propertyName)
@@ -34,6 +34,15 @@ class Comments extends Component
         ]);
         $this->comments->prepend($newComment);
         $this->newComment = "";
+
+        session()->flash("message", 'Comment added successfully!');
+    }
+
+    public function remove($id)
+    {
+        Comment::destroy($id);
+        $this->comments = $this->comments->except($id);
+        session()->flash("message", 'Comment deleted successfully!');
     }
 
     public function render()
