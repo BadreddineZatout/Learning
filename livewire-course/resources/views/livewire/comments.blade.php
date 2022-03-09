@@ -1,4 +1,4 @@
-<div class="w-1/2 mt-6">
+<div class="w-1/2 mt-6 border px-1">
     <h1 class="text-3xl text-gray-800 font-semibold">Comments</h1>
     <div>
         @if (session()->has('message'))

@@ -11,7 +11,8 @@
     @livewireScripts
 </head>
 
-<body class="flex justify-center">
+<body class="flex justify-center px-48">
+    <livewire:tickets />
     <livewire:comments />
 </body>
 

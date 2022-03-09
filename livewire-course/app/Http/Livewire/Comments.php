@@ -30,7 +30,6 @@ class Comments extends Component
     public function addComment()
     {
         $this->validate();
-        $image = $this->storeImage();
         Comment::create([
             "body" => $this->newComment,
             'user_id' => 1
