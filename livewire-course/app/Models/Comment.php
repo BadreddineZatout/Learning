@@ -17,6 +17,7 @@ class Comment extends Model
     protected $fillable = [
         'body',
         'user_id',
+        'support_ticket_id'
     ];
 
     protected $gaurded = [];

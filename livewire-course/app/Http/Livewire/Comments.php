@@ -13,13 +13,15 @@ class Comments extends Component
 
     public $newComment;
     public $image;
+    private $support_ticket;
 
     protected $rules = [
         "newComment" => "required|max:255"
     ];
 
     protected $listeners = [
-        'fileUploaded' => 'handleFileUploaded'
+        'fileUploaded' => 'handleFileUploaded',
+        'ticketSelected' => 'handleTicketSelected'
     ];
 
     public function updated($propertyName)
@@ -32,7 +34,8 @@ class Comments extends Component
         $this->validate();
         Comment::create([
             "body" => $this->newComment,
-            'user_id' => 1
+            'user_id' => 1,
+            'support_ticket_id' => $this->support_ticket
         ]);
         $this->newComment = "";
 
@@ -50,11 +53,16 @@ class Comments extends Component
         $this->image = $image;
     }
 
+    public function handleTicketSelected($ticketId)
+    {
+        $this->support_ticket = $ticketId;
+    }
+
 
     public function render()
     {
         return view('livewire.comments', [
-            "comments" => Comment::latest()->paginate(2)
+            "comments" => Comment::where('support_ticket_id', $this->support_ticket)->latest()->paginate(2)
         ]);
     }
 }
