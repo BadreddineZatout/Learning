@@ -10,21 +10,22 @@
 </head>
 
 <body>
-    <!-- <div x-data="{
-        show: false
+    <div x-data="{
+        query: '',
+        img: '',
+
+        getImage() {
+            this.img = `https://source.unsplash.com/1600x900/?${this.query}`
+        }
     }">
-        <button x-on:click="show = !show">toggle</button>
-        <div x-show="show">Some content</div>
-
-    </div> -->
-
-    <form x-data="{
-        name: ''
-    }" x-on:submit.prevent="alert('submit')">
-        <input type="text" x-model="name">
-        <div x-text="name"></div>
-        <button type="submit">Submit</button>
-    </form>
+        <form x-on:submit.prevent="getImage">
+            <input type="text" x-model="query">
+            <button type="submit">Search</button>
+        </form>
+        <div x-show="img">
+            <img :src="img" width="100px" height="100px">
+        </div>
+    </div>
 </body>
 
 </html>
