@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <title>Learn Alpine js</title>
+</head>
+
+<body>
+    <!-- <div x-data="{
+        show: false
+    }">
+        <button x-on:click="show = !show">toggle</button>
+        <div x-show="show">Some content</div>
+
+    </div> -->
+
+    <form x-data="{
+        name: ''
+    }" x-on:submit.prevent="alert('submit')">
+        <input type="text" x-model="name">
+        <div x-text="name"></div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
