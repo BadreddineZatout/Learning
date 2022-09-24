@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "title": "first post",
+      "author": "Badreddine"
+    },
+    {
+      "title": "second one",
+      "author": "Zatout"
+    }
+  ],
+  "profile": {
+    "firstname": "Bardeddine",
+    "lastname": "Zatout",
+    "email": "hb_zatout@esi.dz"
+  }
+}
