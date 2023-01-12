@@ -1,3 +1,4 @@
+import { ValidateCreateUserPipe } from './../../pipes/validate-create-user/validate-create-user.pipe';
 import { ParseIntPipe } from '@nestjs/common/pipes';
 import { CreateUserDto } from './../../dtos/createUser.dto';
 import {
@@ -24,7 +25,7 @@ export class UsersController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  createUser(@Body() user: CreateUserDto) {
+  createUser(@Body(ValidateCreateUserPipe) user: CreateUserDto) {
     console.log(user);
     this.userService.create(user);
     return {};
