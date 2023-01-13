@@ -1,25 +1,26 @@
+import { User } from './../../../entities/User';
+import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUser } from './../../../interfaces/users.interface';
 import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsersService {
-  private fakeUsers = [
-    {
-      username: 'hello users',
-      email: 'hello@users.ts',
-    },
-  ];
+  constructor(
+    @InjectRepository(User) private userRepository: Repository<User>,
+  ) {}
 
   fetchAll() {
-    return this.fakeUsers;
+    return this.userRepository.find();
   }
 
   create(user: CreateUser) {
-    this.fakeUsers.push(user);
-    return;
+    const newUser = this.userRepository.create({
+      ...user,
+      created_at: new Date(),
+    });
+    return this.userRepository.save(newUser);
   }
 
-  fetchById(id: number) {
-    return { id, username: 'badi', email: 'badi@test.dz' };
-  }
+  fetchById(id: number) {}
 }

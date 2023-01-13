@@ -9,11 +9,12 @@ export class ValidateCreateUserPipe implements PipeTransform {
     console.log(value);
     console.log(metadata);
 
-    const parseAgeToInt = parseInt(value.age.toString());
-    if (isNaN(value.age)) {
-      console.log(`${value.age} is not a number`);
-      throw new HttpException('Invalide Data', HttpStatus.BAD_REQUEST);
-    }
-    return { ...value, age: parseAgeToInt };
+    // const parseAgeToInt = parseInt(value.age.toString());
+    // if (isNaN(value.age)) {
+    //   console.log(`${value.age} is not a number`);
+    //   throw new HttpException('Invalide Data', HttpStatus.BAD_REQUEST);
+    // }
+    // return { ...value, age: parseAgeToInt };
+    return value;
   }
 }

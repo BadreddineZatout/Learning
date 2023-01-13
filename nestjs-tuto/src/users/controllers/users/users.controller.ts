@@ -1,23 +1,18 @@
-import { ValidateCreateUserPipe } from './../../pipes/validate-create-user/validate-create-user.pipe';
-import { ParseIntPipe } from '@nestjs/common/pipes';
 import { CreateUserDto } from './../../dtos/createUser.dto';
 import {
   Body,
   Controller,
   Get,
-  Param,
   Post,
   UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from 'src/users/services/users/users.service';
-import { HttpException } from '@nestjs/common/exceptions';
-import { HttpStatus } from '@nestjs/common/enums';
 import { AuthGuard } from 'src/users/guards/auth/auth.guard';
 
 @Controller('users')
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 export class UsersController {
   constructor(private userService: UsersService) {}
 
@@ -28,17 +23,15 @@ export class UsersController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  createUser(@Body(ValidateCreateUserPipe) user: CreateUserDto) {
-    console.log(user);
-    this.userService.create(user);
-    return {};
+  createUser(@Body() user: CreateUserDto) {
+    return this.userService.create(user);
   }
 
-  @Get(':id')
-  getUserById(@Param('id', ParseIntPipe) id: number) {
-    const user = this.userService.fetchById(id);
-    if (!user)
-      throw new HttpException('User Not Found', HttpStatus.BAD_REQUEST);
-    return user;
-  }
+  // @Get(':id')
+  // getUserById(@Param('id', ParseIntPipe) id: number) {
+  //   const user = this.userService.fetchById(id);
+  //   if (!user)
+  //     throw new HttpException('User Not Found', HttpStatus.BAD_REQUEST);
+  //   return user;
+  // }
 }
