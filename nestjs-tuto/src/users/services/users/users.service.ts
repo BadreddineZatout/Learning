@@ -1,6 +1,6 @@
 import { User } from './../../../entities/User';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateUser } from './../../../interfaces/users.interface';
+import { CreateUser, UpdateUser } from './../../../interfaces/users.interface';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
@@ -22,5 +22,16 @@ export class UsersService {
     return this.userRepository.save(newUser);
   }
 
-  fetchById(id: number) {}
+  update(id: number, data: UpdateUser) {
+    return this.userRepository.update(
+      { id },
+      {
+        ...data,
+      },
+    );
+  }
+
+  delete(id: number) {
+    return this.userRepository.delete(id);
+  }
 }

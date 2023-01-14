@@ -1,9 +1,14 @@
+import { UpdateUserDto } from './../../dtos/updateUser.dto';
 import { CreateUserDto } from './../../dtos/createUser.dto';
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  Param,
+  ParseIntPipe,
   Post,
+  Put,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -27,11 +32,13 @@ export class UsersController {
     return this.userService.create(user);
   }
 
-  // @Get(':id')
-  // getUserById(@Param('id', ParseIntPipe) id: number) {
-  //   const user = this.userService.fetchById(id);
-  //   if (!user)
-  //     throw new HttpException('User Not Found', HttpStatus.BAD_REQUEST);
-  //   return user;
-  // }
+  @Put(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() data: UpdateUserDto) {
+    this.userService.update(id, data);
+  }
+
+  @Delete(':id')
+  delete(@Param('id', ParseIntPipe) id: number) {
+    this.userService.delete(id);
+  }
 }
