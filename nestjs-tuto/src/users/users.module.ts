@@ -1,4 +1,4 @@
-import { User } from './../entities/User';
+import User from './../entities/User';
 import {
   MiddlewareConsumer,
   Module,
@@ -9,6 +9,7 @@ import { UsersController } from './controllers/users/users.controller';
 import { UsersService } from './services/users/users.service';
 import { UsersMiddleware } from './middlewares/users/users.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import Profile from 'src/entities/Profile';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
