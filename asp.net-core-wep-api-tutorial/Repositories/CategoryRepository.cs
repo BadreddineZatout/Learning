@@ -1,4 +1,5 @@
-﻿using review_api.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using review_api.Data;
 using review_api.interfaces;
 using review_api.models;
 
@@ -25,10 +26,9 @@ namespace review_api.repositories
         {
             return _context.Categories.Find(categoryId);
         }
-
         public ICollection<Pokemon> GetPokemonsByCategory(int catgeoryId)
         {
-            throw new NotImplementedException();
+            return _context.CategoryPokemon.Where(e => e.CategoryId == catgeoryId).Select(e => e.Pokemon).ToList();
         }
     }
 }
