@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6N5F7WTgS0gsq11wtsm5aB3+rLZEMnG0RB8TX1mEYwhkUzxzympJzM7ycFmdcrgASi2duBRXp7o4aKgOF1g3pA==",
+  "dgSpecHash": "mrwc0BM+bFm0uOnzBUQVqn4OdwyBhZKS7TRizZZUiRc1IdwegQVNL09CWd0lRg1tGYntlF3a16fDEcU3WwOSgw==",
   "success": true,
-  "projectFilePath": "F:\\Programming\\Work\\review-api\\review-api.csproj",
+  "projectFilePath": "F:\\Programming\\Work\\Learning\\asp.net-core-wep-api-tutorial\\review-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Badreddine\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Badreddine\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

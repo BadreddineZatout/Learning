@@ -3162,11 +3162,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Programming\\Work\\review-api\\review-api.csproj",
+      "projectUniqueName": "F:\\Programming\\Work\\Learning\\asp.net-core-wep-api-tutorial\\review-api.csproj",
       "projectName": "review-api",
-      "projectPath": "F:\\Programming\\Work\\review-api\\review-api.csproj",
+      "projectPath": "F:\\Programming\\Work\\Learning\\asp.net-core-wep-api-tutorial\\review-api.csproj",
       "packagesPath": "C:\\Users\\Badreddine\\.nuget\\packages\\",
-      "outputPath": "F:\\Programming\\Work\\review-api\\obj\\",
+      "outputPath": "F:\\Programming\\Work\\Learning\\asp.net-core-wep-api-tutorial\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Badreddine\\AppData\\Roaming\\NuGet\\NuGet.Config"
